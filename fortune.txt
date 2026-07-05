@@ -1,0 +1,72 @@
+Cyber Fortune Teller - PowerShell Script
+Created for GitHub project use
+How to run on Mac with PowerShell:
+1. Open Terminal
+2. Go to the folder where this file is saved
+3. Rename this file to Cyber-Fortune-Teller.ps1 if needed
+4. Run: pwsh ./Cyber-Fortune-Teller.ps1
+
+Clear-Host
+
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host "        CYBER FORTUNE TELLER" -ForegroundColor Green
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Welcome to the Cyber Fortune Teller." -ForegroundColor Yellow
+Write-Host "Answer the questions below and your cyber fortune will be revealed..." -ForegroundColor Yellow
+Write-Host ""
+
+$name = Read-Host "What is your name?"
+$device = Read-Host "What device do you use the most? Mac, Windows, iPhone, Android, or Linux?"
+$passwordHabit = Read-Host "Do you reuse passwords? yes or no"
+$wifiHabit = Read-Host "Do you use public Wi-Fi often? yes or no"
+
+Write-Host ""
+Write-Host "Scanning your digital aura..." -ForegroundColor Magenta
+Start-Sleep -Seconds 1
+Write-Host "Checking password energy..." -ForegroundColor Magenta
+Start-Sleep -Seconds 1
+Write-Host "Reading cyber destiny..." -ForegroundColor Magenta
+Start-Sleep -Seconds 1
+Write-Host ""
+
+$fortunes = @(
+    "Your future is bright, but your passwords need a security upgrade.",
+    "A suspicious email will try to trick you soon. Do not click unknown links.",
+    "Your cyber power is growing. Keep learning PowerShell and security basics.",
+    "Two-factor authentication will protect you from a major headache.",
+    "Your device is loyal, but it wants software updates.",
+    "A strong password manager may become your best digital friend.",
+    "You are entering your cybersecurity era. Keep building projects.",
+    "Your GitHub profile will become stronger with every project you upload."
+)
+
+$randomFortune = Get-Random -InputObject $fortunes
+
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host "              RESULTS" -ForegroundColor Green
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "Name: $name" -ForegroundColor White
+Write-Host "Main Device: $device" -ForegroundColor White
+Write-Host ""
+
+if ($passwordHabit.ToLower() -eq "yes") {
+    Write-Host "Password Warning: You should stop reusing passwords." -ForegroundColor Red
+} else {
+    Write-Host "Password Status: Good habit. Keep using unique passwords." -ForegroundColor Green
+}
+
+if ($wifiHabit.ToLower() -eq "yes") {
+    Write-Host "Wi-Fi Warning: Be careful on public Wi-Fi. Consider using a VPN." -ForegroundColor Red
+} else {
+    Write-Host "Wi-Fi Status: Nice. Avoiding public Wi-Fi lowers risk." -ForegroundColor Green
+}
+
+Write-Host ""
+Write-Host "Your Cyber Fortune:" -ForegroundColor Yellow
+Write-Host "$randomFortune" -ForegroundColor Cyan
+Write-Host ""
+Write-Host "========================================" -ForegroundColor Cyan
+Write-Host "Thanks for using Cyber Fortune Teller!" -ForegroundColor Green
+Write-Host "========================================" -ForegroundColor Cyan
